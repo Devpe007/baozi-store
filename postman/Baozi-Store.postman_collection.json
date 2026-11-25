@@ -1,0 +1,468 @@
+{
+  "info": {
+    "name": "Baozi Store API",
+    "description": "Testes CRUD para Cliente, Produto e Pedido. Execute os POSTs de cliente e produto antes de criar pedido.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "clienteId",
+      "value": "1"
+    },
+    {
+      "key": "produtoId",
+      "value": "1"
+    },
+    {
+      "key": "pedidoId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "Criar cliente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "clientes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Pedro5181300\",\n  \"clienteDesde\": \"2026-11-25\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const data = pm.response.json(); if (data.id) pm.collectionVariables.set('clienteId', data.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar clientes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "clientes"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Consultar cliente por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes/{{clienteId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "{{clienteId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Atualizar cliente",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes/{{clienteId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "{{clienteId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Pedro5181300\",\n  \"clienteDesde\": \"2026-11-25\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Excluir cliente",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes/{{clienteId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "{{clienteId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Produtos",
+      "item": [
+        {
+          "name": "Criar produto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/produtos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "produtos"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Baozi Tradicional\",\n  \"preco\": 8.5,\n  \"estoque\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const data = pm.response.json(); if (data.id) pm.collectionVariables.set('produtoId', data.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar produtos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/produtos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "produtos"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Consultar produto por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/produtos/{{produtoId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "produtos",
+                "{{produtoId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Atualizar produto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/produtos/{{produtoId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "produtos",
+                "{{produtoId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Baozi Tradicional\",\n  \"preco\": 8.5,\n  \"estoque\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Excluir produto",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/produtos/{{produtoId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "produtos",
+                "{{produtoId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pedidos",
+      "item": [
+        {
+          "name": "Criar pedido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/pedidos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pedidos"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clienteId\": \"{{clienteId}}\",\n  \"produtoId\": \"{{produtoId}}\",\n  \"quantidade\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const data = pm.response.json(); if (data.id) pm.collectionVariables.set('pedidoId', data.id);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Listar pedidos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/pedidos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pedidos"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Consultar pedido por ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/pedidos/{{pedidoId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "{{pedidoId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Atualizar pedido",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/pedidos/{{pedidoId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "{{pedidoId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clienteId\": \"{{clienteId}}\",\n  \"produtoId\": \"{{produtoId}}\",\n  \"quantidade\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Excluir pedido",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/pedidos/{{pedidoId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "{{pedidoId}}"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
